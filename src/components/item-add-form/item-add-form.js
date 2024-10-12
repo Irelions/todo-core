@@ -17,7 +17,9 @@ export default class ItemAddForm extends Component {
     onSubmit = (event) => {
         event.preventDefault();
         this.props.addItem(this.state.label);
-        event.target.value = '';
+        this.setState({
+                label: "",
+        });
     };
 
         render() {
@@ -28,6 +30,7 @@ export default class ItemAddForm extends Component {
                  <input type="text"
                         className='form-control d-flex'
                         onChange={this.onLabelChange}
+                        value={this.state.label}
                  />
                  <button className='btn btn-outline-secondary'>
                      Add item
